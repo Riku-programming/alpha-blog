@@ -1,5 +1,8 @@
 # README
 
+使っている画像はフリー素材ではないため変える必要あり
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
