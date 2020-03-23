@@ -73,28 +73,38 @@
 
       <ul class="nav navbar-nav navbar-right">
 
-        <li><%= link_to 'Log out', logout_path, method: :delete %></li>
+        <% if logged_in? %>
 
-        <li class="dropdown">
+          <li><%= link_to 'Log out', logout_path, method: :delete %> </li>
 
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown
-            <span class="caret"></span></a>
+          <li class="dropdown">
 
-          <ul class="dropdown-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown
+              <span class="caret"></span></a>
 
-            <li><a href="#">Action</a></li>
+            <ul class="dropdown-menu">
 
-            <li><a href="#">Another action</a></li>
+              <li><%= link_to "Edit your profile", edit_user_path(current_user) %></li>
 
-            <li><a href="#">Something else here</a></li>
+              <li><%= link_to "View your profile", user_path(current_user) %></li>
 
-            <li role="separator" class="divider"></li>
+              <li><a href="#">Something else here</a></li>
 
-            <li><a href="#">Separated link</a></li>
+              <li role="separator" class="divider"></li>
 
-          </ul>
+              <li><a href="#">Separated link</a></li>
 
-        </li>
+            </ul>
+
+          </li>
+
+        <% else %>
+          <li><%= link_to 'Log in', login_path %></li>
+
+          <li><%= link_to 'Sign up', signup_path %></li>
+
+      <% end %>
+
 
       </ul>
 
